@@ -1,2 +1,3 @@
 # SupportingLiveProjects_2017
-DigitalLabs Live Projects: This is where to come to if you have a project problem, or you need some information. Use your project email address to send a query to alicedigitallabs@gmail.com. Make your subject line concise, and use the body of the text to add detail. Alice will respond as soon as possible, with an issue number. You can find out how your issue is going by looking it up on the issues list [here](https://github.com/AliceDigitalLabs/SupportingLiveProjects_2017/issues). Your issue will be visible to all projects being supoprted by Alice, so that everyone can benefit from your query.
+[Go to the Wiki](../../wiki)  
+
