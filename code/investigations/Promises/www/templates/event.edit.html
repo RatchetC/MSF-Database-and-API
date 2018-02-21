@@ -1,0 +1,29 @@
+<ion-view view-title="Edit Event">
+
+  <ion-nav-buttons side="right">
+    <button class="button button-clear button-positive">Save</button>
+  </ion-nav-buttons>
+
+  <ion-content>
+    <div class="list">
+
+      <label class="item item-input item-floating-label">
+        <span class="input-label">Name</span>
+        <input type="text" ng-model="vm.event.name">
+      </label>
+
+      <label class="item item-input item-floating-label">
+        <span class="input-label">Date</span>
+        <input type="text" ng-model="vm.event.date">
+      </label>
+
+      <label class="item item-input item-floating-label">
+        <span class="input-label">Postcode</span>
+        <input type="text" ng-model="vm.event.postcode">
+      </label>
+
+    </div> <!-- END OF LIST -->
+
+  </ion-content>
+
+</ion-view>
