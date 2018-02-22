@@ -1,11 +1,14 @@
-<ion-view title="Event List">
+<ion-view view-title="Event List"> <!-- this will be displayed inside of the ion-nav-view -->
 
-  <ion-content>
+  <ion-content> <!-- The content on the page. This does not include the navbar as it is defined in the index.html file -->
 
-    <ion-list>
-      <ion-item class="item-remove-animate" ng-repeat="event in vm.events track by event.id">
-        <h2>{{event.name}}</h2>
-        <p>{{event.date}} - {{event.postcode}} - {{event.id}}</p>
+    <ion-list> <!-- a list -->
+      <ion-item class="item-remove-animate" ng-repeat="event in vm.events"> <!-- an item that repeats itself for each element in the vm.events array -->
+        <h2>{{event.name}}</h2> <!-- {{}} denotes an expression which evaluates to a result in the form of text inside a h2 tag (in this case) -->
+        <p>Date : {{event.date}}</p> <!-- expressions can also be prepended and appended with other text or elements -->
+        <p>Postcode : {{event.postcode}}</p>
+        <p>ID : {{event.id}}</p>
+        <!-- an ion-option-button is hidden behind the list item and the list item must be swiped to the left to reveal it. -->
         <ion-option-button class="button button-energized icon-left ion-trash-b" ng-click="vm.editEvent(event.id)">Edit</ion-option-button>
       </ion-item>
     </ion-list>

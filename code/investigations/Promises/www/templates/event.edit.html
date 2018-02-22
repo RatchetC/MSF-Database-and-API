@@ -5,21 +5,23 @@
   </ion-nav-buttons>
 
   <ion-content>
-    <div class="list">
 
+    <div class="list"> <!-- list containing form input fields that modify the values of vm.event which is the variable event in the view model -->
+
+      <!-- fancy inputs -->
       <label class="item item-input item-floating-label">
-        <span class="input-label">Name</span>
-        <input type="text" ng-model="vm.event.name">
+        <span class="input-label">Name</span>       <!-- ng-model directive allows for two way binding between the view and the model -->
+        <input type="text" placeholder="Name" ng-model="vm.event.name">
       </label>
 
       <label class="item item-input item-floating-label">
         <span class="input-label">Date</span>
-        <input type="text" ng-model="vm.event.date">
+        <input type="text" placeholder="Date" ng-model="vm.event.date">
       </label>
 
       <label class="item item-input item-floating-label">
         <span class="input-label">Postcode</span>
-        <input type="text" ng-model="vm.event.postcode">
+        <input type="text" placeholder="Postcode" ng-model="vm.event.postcode">
       </label>
 
     </div> <!-- END OF LIST -->
