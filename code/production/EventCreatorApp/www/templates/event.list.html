@@ -7,7 +7,9 @@
         <p>Postcode : {{event.postcode}}</p>
         <p>ID : {{event.id}}</p>
         <ion-option-button class="button button-energized icon-left ion-compose" ng-click="vm.editEvent(event.id)">Edit</ion-option-button>
+        <ion-option-button class="button button-energized icon-left ion-trash-b" ng-click="vm.deleteEvent(event.id)">Delete</ion-option-button>
       </ion-item>
     </ion-list>
   </ion-content>
+  <a href="#/event-add" class="button button-balanced ion-compose centered"></a>
 </ion-view>

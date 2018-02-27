@@ -25,6 +25,13 @@
       }
     });
 
+    $stateProvider.state('event-add', {
+      cache: false,
+      url: '/event-add',
+      templateUrl: 'templates/event.edit.html',
+      controller: 'EventAddCtrl as vm'
+    });
+
     $urlRouterProvider.otherwise('event-list');
 
   });
