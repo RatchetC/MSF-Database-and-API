@@ -6,16 +6,16 @@
 
   app.controller('EventListCtrl', control);
 
-  control.$inject = ['$state', 'eventsSrvc'];
+  control.$inject = ['$state', '$ionicPopup', 'eventsSrvc'];
 
-  function control($state, eventsSrvc) {
+  function control($state, $ionicPopup, eventsSrvc) {
 
     var vm = angular.extend(this, { events: [] });
 
     function init() {
       eventsSrvc.getAllEvents().then(
         function success(data) {
-          vm.events = eventsSrvc.events;
+          vm.events = data;
         },
         function failure(error) {
           console.error(error);
@@ -30,13 +30,16 @@
     };
 
     vm.deleteEvent = function (eventID) {
-      for (var i = 0; i < vm.events.length; i++) {
-        if (vm.events[i].id === eventID) {
-          vm.events.splice(i, 1);
+      $ionicPopup.confirm({
+        title: 'Delete Event',
+        template: 'Are you sure you want to delete this event?'
+      }).then(function (res) {
+        if (res) {
+          eventsSrvc.deleteEvent(eventID);
         }
-      }
-      eventsSrvc.deleteEvent(eventID);
-    }
+      });
+    };
+
   }
 
 })();

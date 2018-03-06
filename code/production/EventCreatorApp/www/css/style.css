@@ -1,6 +1,12 @@
 /* Empty. Add your own CSS if you like */
 
-.centered {
+.fab {
   position: fixed;
-  top: 50%;
+  top: 87vh;
+  left: 80vw;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  padding-top: 2px;
+  font-size: 1.5em;
 }
