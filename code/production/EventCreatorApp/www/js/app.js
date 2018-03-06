@@ -5,7 +5,8 @@
   var app = angular.module('EventCreatorApp', [
     'ionic',
     'restlet.sdk',
-    'Events'
+    'Events',
+    'Activities'
   ]);
 
   app.run(function ($ionicPlatform, $rootScope, activityevents) {

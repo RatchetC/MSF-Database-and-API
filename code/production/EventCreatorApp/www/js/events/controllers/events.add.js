@@ -11,22 +11,25 @@
   function control($state, eventsSrvc) {
 
     var vm = angular.extend(this, { 
-      event: {}
-      // loading: false
+      event: {},
+      activities: [],
+      noActivities: true
     });
 
-    vm.saveEvent = function () {
-      // vm.loading = true;
+    vm.save = function save() {
       eventsSrvc.postEvent(vm.event).then(
         function success(data) {
           eventsSrvc.addEvent(data);
           $state.go('event-list');
-          console.log(data);
         },
         function failure(error) {
           console.error(error);
         }
       );
+    };
+
+    vm.gotoActivityList = function () {
+      $state.go('activity-list');
     }
   }
 

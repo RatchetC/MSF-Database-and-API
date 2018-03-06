@@ -1,6 +1,6 @@
 <ion-view>
   <ion-nav-buttons side="right">
-    <button class="button button-clear button-positive" ng-click="vm.saveEvent()">Save</button>
+    <button class="button button-clear button-positive" ng-click="vm.save()">Save</button>
   </ion-nav-buttons>
   <ion-content>
     <div class="list">
@@ -16,6 +16,18 @@
         <span class="input label">Postcode</span>
         <input type="text" placeholder="Postcode" ng-model="vm.event.postcode">
       </label>
+    </div>
+    <div style="text-align : center;">
+      <h2>Activities</h2>
+      <h3 ng-show="vm.noActivities">No Activities Yet</h3>
+      <ion-list>
+        <ion-item ng-repeat="activity in activities">
+          <h2>{{activity.name}}</h2>
+          <p>{{activity.description}}</p>
+          <p>{{activity.units}}</p>
+        </ion-item>
+      </ion-list>
+      <button class="button button-balanced icon-left ion-plus-round" ng-click="vm.gotoActivityList()">Add Activity</button>
     </div>
   </ion-content>
 </ion-view>

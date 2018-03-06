@@ -9,7 +9,11 @@
   eventsSrvc.$inject = ['$q', 'activityevents'];
 
   function eventsSrvc($q, activityevents) {
-
+    
+    var service = {};
+  
+    service.events = [];
+    
     /*
       
       CRUD Methods Needed
@@ -23,16 +27,12 @@
                fetchAllEvents()
       CREATE   addEvent(event)
       RETRIEVE fetchEvent(eventID)
-      UPDATE   changeEvent(event)
+      UPDATE   updateEvent(event)
       DELETE   removeEvent(eventID)
 
       REMEMBER!!! DON'T DESTROY BINDINGS BY FORCING VALUES TO CHANGE!!! E.g. (service.events = data;) USE AN API!!! E.g. (service.syncEvents(data);)
 
     */
-
-    var service = {};
-
-    service.events = [];
 
     service.getAllEvents = function getAllEvents() {
 
@@ -130,28 +130,33 @@
     };
 
     service.fetchEvent = function fetchEvent(eventID) {
+      
       for (var i = 0; i < service.events.length; i++) {
         if (service.events[i].id === eventID) {
           return service.events[i];
         }
       }
+    
     };
 
-    service.changeEvent = function changeEvent(event) {
+    service.updateEvent = function updateEvent(event) {
+      
       for (var i = 0; i < service.events.length; i++) {
         if (service.events[i].id === event.id) {
           service.events[i] = event;
         }
       }
+    
     };
 
     service.removeEvent = function removeEvent(eventID) {
-      // TODO: Create method to remove a partcular event from the local events store (service.events)
+
       for (var i = 0; i < service.events.length; i++) {
         if (service.events[i].id === eventID) {
           service.events.splice(i, 1);
         }
       }
+    
     };
 
     service.syncEvents = function syncEvents(data) {
