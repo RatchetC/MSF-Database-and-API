@@ -1,33 +1,38 @@
-<ion-view>
-  <ion-nav-buttons side="right">
-    <button class="button button-clear button-positive" ng-click="vm.save()">Save</button>
-  </ion-nav-buttons>
+<ion-view title="{{vm.title}}">
   <ion-content>
-    <div class="list">
-      <label class="item item-input item-floating-label">
-        <span class="input label">Name</span>
-        <input type="text" placeholder="Name" ng-model="vm.event.name">
+
+    <form name="form" class="list list-inset" novalidate>
+      <label class="item item-input item-stacked-label">
+        <span class="input-label">Name
+          <span style="color: red; position: absolute; right: 2%;" ng-show="form.eventName.$touched && form.eventName.$invalid">Required</span>
+        </span>
+        <input name="eventName" type="text" placeholder="Name" ng-model="vm.event.name" ng-required="true" ng-minlength="2">
       </label>
-      <label class="item item-input item-floating-label">
-        <span class="input label">Date</span>
-        <input type="text" placeholder="Date" ng-model="vm.event.date">
+      <label class="item item-input item-stacked-label">
+        <span class="input-label">Date<span style="color: red; position: absolute; right: 2%;" ng-show="form.eventDate.$touched && form.eventDate.$invalid">Required</span></span>
+        <input name="eventDate" type="text" placeholder="Date" ng-model="vm.event.date" ng-required="true">
       </label>
-      <label class="item item-input item-floating-label">
-        <span class="input label">Postcode</span>
-        <input type="text" placeholder="Postcode" ng-model="vm.event.postcode">
+      <label class="item item-input item-stacked-label">
+        <span class="input-label">Postcode<span style="color: red; position: absolute; right: 2%;" ng-show="form.eventPostcode.$touched && form.eventPostcode.$invalid">Required</span></span>
+        <input name="eventPostcode" type="text" placeholder="Postcode" ng-model="vm.event.postcode" ng-required="true" ng-minlength="6">
       </label>
-    </div>
-    <div style="text-align : center;">
-      <h2>Activities</h2>
-      <h3 ng-show="vm.noActivities">No Activities Yet</h3>
-      <ion-list>
-        <ion-item ng-repeat="activity in activities">
+      <button class="button button-block button-positive" ng-click="vm.save()">Save</button>
+    </form>
+
+    <div ng-hide="vm.hideActivityList">
+      <h2 style="text-align : center;" >Activities</h2>
+      <h3 ng-show="vm.noActivities" style="text-align : center;" >No Activities Yet!</h3>
+      <div class="list list-inset">
+        <ion-item class="item-remove-animate" ng-repeat="activity in vm.activities">
           <h2>{{activity.name}}</h2>
           <p>{{activity.description}}</p>
           <p>{{activity.units}}</p>
+          <ion-option-button class="button button-assertive icon-left ion-trash-b" ng-click="vm.deleteActivityFromEvent(activity.id)">Delete</ion-option-button>
         </ion-item>
-      </ion-list>
-      <button class="button button-balanced icon-left ion-plus-round" ng-click="vm.gotoActivityList()">Add Activity</button>
+        <button style="left: 50%; transform: translateX(-50%);" class="button button-block button-balanced icon-left ion-plus-round"
+          ng-click="vm.gotoActivityList()"> Add Activity</button>
+      </div>
     </div>
+
   </ion-content>
 </ion-view>

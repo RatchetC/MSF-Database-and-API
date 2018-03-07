@@ -6,11 +6,17 @@
 
   app.controller('EventEditCtrl', control);
 
-  control.$inject = ['$state', 'eventsSrvc', 'selectedEvent'];
+  control.$inject = ['$state', '$ionicPopup', 'eventsSrvc', 'eventActivityMappingsSrvc', 'selectedEvent', 'activities', 'mappings'];
 
-  function control($state, eventsSrvc, selectedEvent) {
+  function control($state, $ionicPopup, eventsSrvc, eventActivityMappingsSrvc, selectedEvent, activities, mappings) {
 
-    var vm = angular.extend(this, { event: {} });
+    var vm = angular.extend(this, {
+      title: 'Edit Event',
+      event: {},
+      activities: activities,
+      hideActivityList: false,
+      noActivities: true
+    });
 
     vm.event = selectedEvent;
 
@@ -26,7 +32,30 @@
       );
     };
 
-    
+    vm.gotoActivityList = function gotoActivityList() {
+      $state.go('activity-list', { eventID: $state.params.eventID });
+    };
+
+    vm.deleteActivityFromEvent = function deleteActivityFromEvent(activityID) {
+      $ionicPopup.confirm({
+        title: 'Delete Activity',
+        template: 'Are you sure you want to delete this activity from your event?'
+      }).then(function (response) {
+        var YES = true;
+        if (response === YES) {
+          for (var i = 0; i < vm.activities.length; i++) {
+            if (vm.activities[i].id === activityID) {
+              vm.activities.splice(i, 1);
+            }
+          }
+          for (var j = 0; j < mappings.length; j++) {
+            if (mappings[j].activity === activityID) {
+              eventActivityMappingsSrvc.deleteEventActivityMapping(mappings[j].id);
+            }
+          }
+        }
+      });
+    };
 
   }
 

@@ -6,9 +6,9 @@
 
   app.controller('ActivityListCtrl', control);
 
-  control.$inject = ['$state', 'activitiesSrvc'];
+  control.$inject = ['$state', '$ionicPopup', 'activitiesSrvc', 'eventActivityMappingsSrvc'];
 
-  function control($state, activitiesSrvc) {
+  function control($state, $ionicPopup, activitiesSrvc, eventActivityMappingsSrvc) {
 
     var vm = angular.extend(this, { activities: [] });
 
@@ -39,6 +39,32 @@
           activitiesSrvc.deleteActivity(activityID);
         }
       });
+    };
+
+    vm.addActivityToEvent = function addActivityToEvent(activity) {
+      var mapping = {
+        id: new Date().getTime().toString(),
+        event: $state.params.eventID,
+        activity: activity.id
+      };
+
+      $ionicPopup.confirm({
+        title: 'Add Activity To Event',
+        template: 'Are you sure you want to add ' + activity.name + ' to your event?'
+      }).then(function (response) {
+        var YES = true;
+        if (response === YES) {
+          eventActivityMappingsSrvc.postEventActivityMapping(mapping).then(
+            function success(postedMapping) {
+              $state.go('event-edit', { eventID: $state.params.eventID } );
+            },
+            function failure(error) {
+              console.log(error);
+            }
+          );
+        }
+      });
+
     };
 
   }

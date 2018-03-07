@@ -6,9 +6,9 @@
 
   app.controller('ActivityAddCtrl', control);
 
-  control.$inject = [];
+  control.$inject = ['$ionicHistory', 'activitiesSrvc'];
 
-  function control() {
+  function control($ionicHistory, activitiesSrvc) {
 
     var vm = angular.extend(this, {
       activity: {
@@ -21,7 +21,17 @@
       }
     });
 
-    
+    vm.save = function save() {
+      activitiesSrvc.postActivity(vm.activity).then(
+        function success(postedActivity) {
+          activitiesSrvc.addActivity(postedActivity);
+          $ionicHistory.goBack();
+        },
+        function failure(error) {
+          console.error(error);
+        }
+      );
+    };
 
   }
 

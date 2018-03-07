@@ -1,0 +1,29 @@
+<ion-view>
+  <ion-nav-buttons side="right">
+    <button class="button button-clear button-positive" ng-click="vm.save()">Save</button>
+  </ion-nav-buttons>
+  <ion-content>
+    <div class="list">
+      <label class="item item-input item-floating-label">
+        <span class="input-label">Name</span>
+        <input type="text" placeholder="Name" ng-click="vm.activity.name">
+      </label>
+      <label class="item item-input item-floating-label">
+        <span class="input-label">Description</span>
+        <input type="text" placeholder="Description" ng-click="vm.activity.description">
+      </label>
+      <label class="item item-input item-floating-label">
+        <span class="input-label">Units</span>
+        <input type="text" placeholder="Units" ng-click="vm.activity.units">
+      </label>
+      <label class="item item-input item-floating-label">
+        <span class="input-label">Minimum Legal Value</span>
+        <input type="text" placeholder="Minimum Legal Value" ng-click="vm.activity.minLegalValue">
+      </label>
+      <label class="item item-input item-floating-label">
+        <span class="input-label">Maximum Legal Value</span>
+        <input type="text" placeholder="Maximum Legal Value" ng-click="vm.activity.maxLegalValue">
+      </label>
+    </div>
+  </ion-content>
+</ion-view>

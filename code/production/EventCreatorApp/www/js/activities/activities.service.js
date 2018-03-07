@@ -169,6 +169,25 @@
 
     };
 
+    service.getActivitiesForThisEvent = function getActivitiesForThisEvent(eventID) {
+      var resolvePromise = $q.defer();
+      var config = { params: { event: eventID } };
+      activityevents.getEventActivityMappings(config).then(
+        function success(response) {
+          var promises = [];
+          var mappingsArray = response.data;
+          for (var i = 0; i < mappingsArray.length; i++) {
+            promises.push(service.getActivity(mappingsArray[i].activity));
+          }
+          resolvePromise.resolve($q.all(promises));
+        },
+        function failure(error) {
+          resolvePromise.reject(error);
+        }
+      );
+      return resolvePromise.promise;
+    };
+
     return service;
 
   }

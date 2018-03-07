@@ -19,9 +19,29 @@
       templateUrl: 'templates/event.edit.html',
       controller: 'EventEditCtrl as vm',
       resolve: {
-        selectedEvent: function (eventsSrvc, $stateParams) {
+        
+        selectedEvent: function ($stateParams, eventsSrvc) {
           return eventsSrvc.getEvent($stateParams.eventID);
+        },
+
+        activities: function ($stateParams, activitiesSrvc) {
+          return activitiesSrvc.getActivitiesForThisEvent($stateParams.eventID);
+        },
+
+        mappings: function ($stateParams, $q, activityevents) {
+          var promiseObj = $q.defer();
+          var config = { params: { event: $stateParams.eventID } };
+          activityevents.getEventActivityMappings(config).then(
+            function success(response) {
+              promiseObj.resolve(response.data);
+            },
+            function failure(error) {
+              promiseObj.reject(error);
+            }
+          );
+          return promiseObj.promise;
         }
+
       }
     });
 

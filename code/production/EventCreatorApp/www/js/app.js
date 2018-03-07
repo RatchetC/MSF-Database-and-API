@@ -6,7 +6,8 @@
     'ionic',
     'restlet.sdk',
     'Events',
-    'Activities'
+    'Activities',
+    'EventActivityMappings'
   ]);
 
   app.run(function ($ionicPlatform, $rootScope, activityevents) {

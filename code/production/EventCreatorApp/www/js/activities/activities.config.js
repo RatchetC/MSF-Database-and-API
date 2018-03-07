@@ -8,14 +8,14 @@
 
     $stateProvider.state('activity-list', {
       cache: false,
-      url: '/activity-list',
+      url: '/activity-list/:eventID',
       templateUrl: 'templates/activity.list.html',
       controller: 'ActivityListCtrl as vm'
     });
 
     $stateProvider.state('activity-edit', {
       cache: false,
-      url: '/activity-edit:activityID',
+      url: '/activity-edit/:activityID',
       templateUrl: 'templates/activity.edit.html',
       controller: 'ActivityEditCtrl as vm'
     });
