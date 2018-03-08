@@ -1,29 +1,37 @@
-<ion-view>
-  <ion-nav-buttons side="right">
-    <button class="button button-clear button-positive" ng-click="vm.save()">Save</button>
-  </ion-nav-buttons>
+<ion-view title="Add Activity">
   <ion-content>
-    <div class="list">
-      <label class="item item-input item-floating-label">
-        <span class="input-label">Name</span>
-        <input type="text" placeholder="Name" ng-click="vm.activity.name">
+    <form name="activityForm" class="list list-inset">
+      <label class="item item-input item-stacked-label">
+        <span class="input-label">Name
+          <span style="color: red; position: absolute; right: 2%" ng-show="activityForm.activityName.$touched && activityForm.activityName.$invalid">Required</span>
+        </span>
+        <input name="activityName" type="text" placeholder="Name" ng-model="vm.activity.name" ng-minlength="2" required>
       </label>
-      <label class="item item-input item-floating-label">
-        <span class="input-label">Description</span>
-        <input type="text" placeholder="Description" ng-click="vm.activity.description">
+      <label class="item item-input item-stacked-label">
+        <span class="input-label">Description
+          <span style="color: red; position: absolute; right: 2%" ng-show="activityForm.activityDescription.$touched && activityForm.activityDescription.$invalid">Required</span>
+        </span>
+        <input name="activityDescription" type="text" placeholder="Description" ng-model="vm.activity.description" required> <!-- Does this one need minLength? -->
       </label>
-      <label class="item item-input item-floating-label">
-        <span class="input-label">Units</span>
-        <input type="text" placeholder="Units" ng-click="vm.activity.units">
+      <label class="item item-input item-stacked-label">
+        <span class="input-label">Units
+          <span style="color: red; position: absolute; right: 2%" ng-show="activityForm.activityUnits.$touched && activityForm.activityUnits.$invalid">Required</span>
+        </span>
+        <input name="activityUnits" type="text" placeholder="Units" ng-model="vm.activity.units" required>
       </label>
-      <label class="item item-input item-floating-label">
-        <span class="input-label">Minimum Legal Value</span>
-        <input type="text" placeholder="Minimum Legal Value" ng-click="vm.activity.minLegalValue">
+      <label class="item item-input item-stacked-label">
+        <span class="input-label">Minimum Legal Value
+          <span style="color: red; position: absolute; right: 2%" ng-show="activityForm.activityMinLegalValue.$touched && activityForm.activityMinLegalValue.$invalid">Required</span>
+        </span>
+        <input name="activityMinLegalValue" type="text" placeholder="Minimum Legal Value" ng-model="vm.activity.minLegalValue" required>
       </label>
-      <label class="item item-input item-floating-label">
-        <span class="input-label">Maximum Legal Value</span>
-        <input type="text" placeholder="Maximum Legal Value" ng-click="vm.activity.maxLegalValue">
+      <label class="item item-input item-stacked-label">
+        <span class="input-label">Maximum Legal Value
+          <span style="color: red; position: absolute; right: 2%" ng-show="activityForm.activityMaxLegalValue.$touched && activityForm.activityMaxLegalValue.$invalid">Required</span>
+        </span>
+        <input name="activityMaxLegalValue" type="text" placeholder="Maximum Legal Value" ng-model="vm.activity.maxLegalValue" required>
       </label>
-    </div>
+      <button class="button button-block button-positive" ng-click="vm.save()">Save</button>
+    </form>
   </ion-content>
 </ion-view>
