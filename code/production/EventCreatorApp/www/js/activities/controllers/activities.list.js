@@ -6,9 +6,9 @@
 
   app.controller('ActivityListCtrl', control);
 
-  control.$inject = ['$state', '$ionicPopup', 'activitiesSrvc', 'eventActivityMappingsSrvc'];
+  control.$inject = ['$state', '$ionicPopup', '$timeout', 'activitiesSrvc', 'eventActivityMappingsSrvc'];
 
-  function control($state, $ionicPopup, activitiesSrvc, eventActivityMappingsSrvc) {
+  function control($state, $ionicPopup, $timeout, activitiesSrvc, eventActivityMappingsSrvc) {
 
     var vm = angular.extend(this, { activities: [] });
 
@@ -26,20 +26,20 @@
 
     init();
 
-    vm.gotoEditActivityScreen = function gotoEditActivityScreen(activityID) {
-      $state.go('activity-edit', { activityID: activityID } );
-    };
+    // vm.gotoEditActivityScreen = function gotoEditActivityScreen(activityID) {
+    //   $state.go('activity-edit', { activityID: activityID } );
+    // };
 
-    vm.deleteActivity = function deleteActivity(activityID) {
-      $ionicPopup.confirm({
-        title: 'Delete Activity',
-        template: 'Are you sure you want to delete this activity?'
-      }).then(function (res) {
-        if (res === true) {
-          activitiesSrvc.deleteActivity(activityID);
-        }
-      });
-    };
+    // vm.deleteActivity = function deleteActivity(activityID) {
+    //   $ionicPopup.confirm({
+    //     title: 'Delete Activity',
+    //     template: 'Are you sure you want to delete this activity?'
+    //   }).then(function (res) {
+    //     if (res === true) {
+    //       activitiesSrvc.deleteActivity(activityID);
+    //     }
+    //   });
+    // };
 
     vm.addActivityToEvent = function addActivityToEvent(activity) {
       var mapping = {
@@ -56,7 +56,10 @@
         if (response === YES) {
           eventActivityMappingsSrvc.postEventActivityMapping(mapping).then(
             function success(postedMapping) {
-              $state.go('event-edit', { eventID: $state.params.eventID } );
+              // eventActivityMappingsSrvc.addEventActivityMapping(postedMapping);
+              $timeout(function () {
+                $state.go('event-edit', { eventID: $state.params.eventID });
+              }, 1000);
             },
             function failure(error) {
               console.log(error);

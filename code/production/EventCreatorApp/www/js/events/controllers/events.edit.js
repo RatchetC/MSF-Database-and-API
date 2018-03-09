@@ -12,13 +12,19 @@
 
     var vm = angular.extend(this, {
       title: 'Edit Event',
-      event: {},
+      btnSaveText: 'Save Changes To Event',
+      event: selectedEvent,
       activities: activities,
-      hideActivityList: false,
-      noActivities: true
+      noActivities: false
     });
 
-    vm.event = selectedEvent;
+    function init() {
+      if (vm.activities.length === 0) {
+        vm.noActivities = true;
+      }
+    }
+
+    init();
 
     vm.save = function save() {
       eventsSrvc.putEvent(vm.event).then(
@@ -47,6 +53,9 @@
             if (vm.activities[i].id === activityID) {
               vm.activities.splice(i, 1);
             }
+          }
+          if (vm.activities.length === 0) {
+            vm.noActivities = true;
           }
           for (var j = 0; j < mappings.length; j++) {
             if (mappings[j].activity === activityID) {

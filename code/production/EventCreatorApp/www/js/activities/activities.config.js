@@ -13,17 +13,17 @@
       controller: 'ActivityListCtrl as vm'
     });
 
-    $stateProvider.state('activity-edit', {
-      cache: false,
-      url: '/activity-edit/:activityID',
-      templateUrl: 'templates/activity.edit.html',
-      controller: 'ActivityEditCtrl as vm'
-    });
+    // $stateProvider.state('activity-edit', {
+    //   cache: false,
+    //   url: '/activity-edit/:activityID',
+    //   templateUrl: 'templates/activity.edit.html',
+    //   controller: 'ActivityEditCtrl as vm'
+    // });
 
     $stateProvider.state('activity-add', {
       cache: false,
       url: '/activity-add',
-      templateUrl: 'templates/activity.edit.html',
+      templateUrl: 'templates/activity.add.html',
       controller: 'ActivityAddCtrl as vm'
     });
 
