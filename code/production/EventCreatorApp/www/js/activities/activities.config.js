@@ -10,7 +10,12 @@
       cache: false,
       url: '/activity-list/:eventID',
       templateUrl: 'templates/activity.list.html',
-      controller: 'ActivityListCtrl as vm'
+      controller: 'ActivityListCtrl as vm',
+      resolve: {
+        thisEventsMappings: function (eventActivityMappingsSrvc, $stateParams) {
+          return eventActivityMappingsSrvc.getEventActivityMappings($stateParams.eventID);
+        }
+      }
     });
 
     // $stateProvider.state('activity-edit', {

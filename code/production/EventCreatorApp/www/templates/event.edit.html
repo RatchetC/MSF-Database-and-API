@@ -1,6 +1,9 @@
 <ion-view title="{{vm.title}}">
+  
+  <ion-spinner ng-show="vm.loading" icon="lines" class="spinner spinner-balanced"></ion-spinner>
+  
   <ion-content>
-
+    
     <form name="eventForm" class="list" novalidate>
       <label class="item item-input item-stacked-label">
         <span class="input-label">Name
@@ -39,4 +42,5 @@
     </div>
 
   </ion-content>
+
 </ion-view>

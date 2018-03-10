@@ -28,18 +28,19 @@
           return activitiesSrvc.getActivitiesForThisEvent($stateParams.eventID);
         },
 
-        mappings: function ($stateParams, $q, activityevents) {
-          var promiseObj = $q.defer();
-          var config = { params: { event: $stateParams.eventID } };
-          activityevents.getEventActivityMappings(config).then(
-            function success(response) {
-              promiseObj.resolve(response.data);
-            },
-            function failure(error) {
-              promiseObj.reject(error);
-            }
-          );
-          return promiseObj.promise;
+        mappings: function ($stateParams, eventActivityMappingsSrvc) {
+          // var promiseObj = $q.defer();
+          // var config = { params: { event: $stateParams.eventID } };
+          // activityevents.getEventActivityMappings(config).then(
+          //   function success(response) {
+          //     promiseObj.resolve(response.data);
+          //   },
+          //   function failure(error) {
+          //     promiseObj.reject(error);
+          //   }
+          // );
+          // return promiseObj.promise;
+          return eventActivityMappingsSrvc.getEventActivityMappings($stateParams.eventID);
         }
 
       }

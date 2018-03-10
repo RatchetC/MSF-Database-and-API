@@ -15,7 +15,8 @@
       btnSaveText: 'Save Changes To Event',
       event: selectedEvent,
       activities: activities,
-      noActivities: false
+      noActivities: false,
+      loading: false
     });
 
     function init() {
@@ -27,13 +28,22 @@
     init();
 
     vm.save = function save() {
+      vm.loading = true;
       eventsSrvc.putEvent(vm.event).then(
         function success(data) {
           eventsSrvc.updateEvent(data);
+          vm.loading = false;
+          $ionicPopup.alert({
+            title: 'Success!',
+            template: 'Your changes have been saved!'
+          });
           $state.go('event-list');
         },
         function failure(error) {
-          console.error(error);
+          $ionicPopup.alert({
+            title: 'Error',
+            template: 'An error occurred when trying to save your changes. Please check your internet connection and try again.'
+          });
         }
       );
     };

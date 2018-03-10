@@ -31,6 +31,28 @@
       return promiseObj.promise;
     };
 
+    service.getEventActivityMappings = function getEventActivityMappings(eventID) {
+
+      var promiseObj = $q.defer();
+
+      var config = {
+        params: {
+          event: eventID
+        }
+      };
+      activityevents.getEventActivityMappings(config).then(
+        function succes(response) {
+          promiseObj.resolve(response.data);
+        },
+        function failure(error) {
+          promiseObj.reject(error);
+        }
+      );
+
+      return promiseObj.promise;
+
+    };
+
     service.postEventActivityMapping = function postEventActivityMapping(mapping) {
       var promiseObj = $q.defer();
       var config = {};
@@ -67,6 +89,20 @@
       service.mappings.push(mapping);
     };
 
+    service.fetchEventActivityMapping = function fetchEventActivityMapping(eventID) {
+
+      var thisEventsMappings = [];
+
+      for (var i = 0; i < service.mappings.length; i++) {
+        if (service.mappings[i].event === eventID) {
+          thisEventsMappings.push(service.mappings[i]);
+        }
+      }
+
+      return thisEventsMappings;
+
+    };
+
     service.removeEventActivityMapping = function removeEventActivityMapping(mappingID) {
       for (var i = 0; i < service.mappings.length; i++) {
         if (service.mappings[i].id === mappingID) {
@@ -78,11 +114,14 @@
     service.syncEventActivityMappings = function syncEventActivityMappings(data) {
       for (var testItemIndex in data) {
         var testitem = data[testItemIndex];
-        var matchResult = service.mappings.reduce(function (matches, item) { return ((item.id === testitem.id) ? matches + 1 : matches); }, 0);
+        var matchResult = service.mappings.reduce(function (matches, item) {
+          return ((item.id === testitem.id) ? matches + 1 : matches);
+        }, 0);
         if (matchResult === 0) {
           service.mappings.push(testitem);
-        } else { }
+        } else {}
       }
+      console.log('After syncing : ', service.mappings);
     };
 
     return service;

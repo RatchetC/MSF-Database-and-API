@@ -18,13 +18,16 @@
         units: '',
         minLegalValue: '',
         maxLegalValue: ''
-      }
+      },
+      loading: false
     });
 
     vm.save = function save() {
+      vm.loading = true;
       activitiesSrvc.postActivity(vm.activity).then(
         function success(postedActivity) {
           activitiesSrvc.addActivity(postedActivity);
+          vm.loading = false;
           $ionicHistory.goBack();
         },
         function failure(error) {

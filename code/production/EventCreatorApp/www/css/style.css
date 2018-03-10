@@ -14,3 +14,17 @@
 /* input.ng-invalid.ng-touched {
   border: 1px solid red;
 } */
+
+.spinner svg {
+  width: 50vw;
+  height: 50vh;
+  z-index: 10000;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.blur {
+  filter: blur(2px) !important;
+}
