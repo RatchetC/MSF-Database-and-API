@@ -164,7 +164,7 @@
         var matchResult = service.activities.reduce(function (matches, item) { return ((item.id === testitem.id) ? matches + 1 : matches); }, 0);
         if (matchResult === 0) {
           service.activities.push(testitem);
-        } else { }
+        }
       }
 
     };
