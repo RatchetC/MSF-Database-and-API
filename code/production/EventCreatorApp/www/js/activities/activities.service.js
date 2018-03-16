@@ -170,22 +170,22 @@
     };
 
     service.getActivitiesForThisEvent = function getActivitiesForThisEvent(eventID) {
-      var resolvePromise = $q.defer();
+      var promiseObj = $q.defer();
       var config = { params: { event: eventID } };
       activityevents.getEventActivityMappings(config).then(
         function success(response) {
-          var promises = [];
+          var activityPromises = [];
           var mappingsArray = response.data;
           for (var i = 0; i < mappingsArray.length; i++) {
-            promises.push(service.getActivity(mappingsArray[i].activity));
+            activityPromises.push(service.getActivity(mappingsArray[i].activity));
           }
-          resolvePromise.resolve($q.all(promises));
+          promiseObj.resolve($q.all(activityPromises));
         },
         function failure(error) {
-          resolvePromise.reject(error);
+          promiseObj.reject(error);
         }
       );
-      return resolvePromise.promise;
+      return promiseObj.promise;
     };
 
     return service;

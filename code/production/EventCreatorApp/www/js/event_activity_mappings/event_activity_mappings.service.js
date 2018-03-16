@@ -32,14 +32,8 @@
     };
 
     service.getEventActivityMappings = function getEventActivityMappings(eventID) {
-
       var promiseObj = $q.defer();
-
-      var config = {
-        params: {
-          event: eventID
-        }
-      };
+      var config = { params: { event: eventID } };
       activityevents.getEventActivityMappings(config).then(
         function succes(response) {
           promiseObj.resolve(response.data);
@@ -48,9 +42,7 @@
           promiseObj.reject(error);
         }
       );
-
       return promiseObj.promise;
-
     };
 
     service.postEventActivityMapping = function postEventActivityMapping(mapping) {
@@ -59,6 +51,7 @@
       activityevents.postEventActivityMappings(mapping, config).then(
         function success(response) {
           promiseObj.resolve(response.data);
+          service.addEventActivityMapping(response.data);
         },
         function failure(error) {
           promiseObj.reject(error);
@@ -68,7 +61,6 @@
     };
 
     service.deleteEventActivityMapping = function deleteEventActivityMapping(mappingID) {
-
       var config = {};
       activityevents.deleteEventActivityMappingsEventActivityMappingid(mappingID, config).then(
         function success(response) {
@@ -78,7 +70,6 @@
           console.error(error);
         }
       );
-
     };
 
     service.fetchAllEventActivityMappings = function fetchAllEventActivityMappings() {
@@ -90,17 +81,13 @@
     };
 
     service.fetchEventActivityMapping = function fetchEventActivityMapping(eventID) {
-
       var thisEventsMappings = [];
-
       for (var i = 0; i < service.mappings.length; i++) {
         if (service.mappings[i].event === eventID) {
           thisEventsMappings.push(service.mappings[i]);
         }
       }
-
       return thisEventsMappings;
-
     };
 
     service.removeEventActivityMapping = function removeEventActivityMapping(mappingID) {
@@ -119,9 +106,8 @@
         }, 0);
         if (matchResult === 0) {
           service.mappings.push(testitem);
-        } else {}
+        }
       }
-      console.log('After syncing : ', service.mappings);
     };
 
     return service;

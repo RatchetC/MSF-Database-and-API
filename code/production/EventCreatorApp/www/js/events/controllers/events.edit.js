@@ -12,7 +12,7 @@
 
     var vm = angular.extend(this, {
       title: 'Edit Event',
-      btnSaveText: 'Save Changes To Event',
+      btnSaveText: 'Save Changes',
       event: selectedEvent,
       activities: activities,
       noActivities: false,
