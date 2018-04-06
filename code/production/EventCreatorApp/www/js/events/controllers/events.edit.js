@@ -6,9 +6,9 @@
 
   app.controller('EventEditCtrl', control);
 
-  control.$inject = ['$state', '$ionicPopup', 'eventsSrvc', 'eventActivityMappingsSrvc', 'selectedEvent', 'activities', 'mappings'];
+  control.$inject = ['$state', '$ionicPopup', '$ionicHistory', 'eventsSrvc', 'eventActivityMappingsSrvc', 'selectedEvent', 'activities', 'mappings'];
 
-  function control($state, $ionicPopup, eventsSrvc, eventActivityMappingsSrvc, selectedEvent, activities, mappings) {
+  function control($state, $ionicPopup, $ionicHistory, eventsSrvc, eventActivityMappingsSrvc, selectedEvent, activities, mappings) {
 
     var vm = angular.extend(this, {
       title: 'Edit Event',
@@ -36,6 +36,9 @@
           $ionicPopup.alert({
             title: 'Success!',
             template: 'Your changes have been saved!'
+          });
+          $ionicHistory.nextViewOptions({
+            disableBack: true
           });
           $state.go('event-list');
         },

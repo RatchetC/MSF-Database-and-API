@@ -6,9 +6,9 @@
 
   app.controller('ActivityAddCtrl', control);
 
-  control.$inject = ['$ionicHistory', 'activitiesSrvc'];
+  control.$inject = ['$ionicHistory', '$ionicPopup', 'activitiesSrvc'];
 
-  function control($ionicHistory, activitiesSrvc) {
+  function control($ionicHistory, $ionicPopup, activitiesSrvc) {
 
     var vm = angular.extend(this, {
       activity: {
@@ -32,6 +32,10 @@
         },
         function failure(error) {
           console.error(error);
+          $ionicPopup.alert({
+            title: 'Error!',
+            template: 'Failed to save your activity to the database. Please check your internet connection and try again.'
+          });
         }
       );
     };

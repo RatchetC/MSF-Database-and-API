@@ -6,16 +6,14 @@
   
   <ion-spinner ng-show="vm.loading" icon="lines" class="spinner spinner-balanced"></ion-spinner>
   
-  <ion-content ng-class="{ 'blur' : vm.blurContent }">
+  <ion-content>
     <ion-list>
       <ion-item class="item-remove-animate" ng-repeat="activity in vm.activities" ng-click="vm.addActivityToEvent(activity)">
         <h2>{{activity.name}}</h2>
         <p>{{activity.description}}</p>
         <p>{{activity.units}}</p>
-        <!-- <ion-option-button class="button button-assertive icon-left ion-trash-b" ng-click="vm.deleteActivity(activity.id)">Delete</ion-option-button>
-        <ion-option-button class="button button-energized icon-left ion-compose" ng-click="vm.gotoEditActivityScreen(activity.id)">Edit</ion-option-button> -->
       </ion-item>
     </ion-list>
   </ion-content>
-  <!-- <a href="#/activity-add" class="button button-balanced ion-compose fab"></a> -->
+  
 </ion-view>

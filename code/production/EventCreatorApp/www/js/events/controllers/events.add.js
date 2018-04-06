@@ -6,9 +6,9 @@
 
   app.controller('EventAddCtrl', control);
 
-  control.$inject = ['$state', 'eventsSrvc'];
+  control.$inject = ['$state', '$ionicPopup', '$ionicHistory','eventsSrvc'];
 
-  function control($state, eventsSrvc) {
+  function control($state, $ionicPopup, $ionicHistory, eventsSrvc) {
 
     var vm = angular.extend(this, {
       title: "Add Event",
@@ -41,6 +41,11 @@
         function success(postedEvent) {
           eventsSrvc.addEvent(postedEvent);
           vm.loading = false;
+          // the add event and edit event screens are one and the same as they share a template.
+          // this means that when the user goes back after going to the activity list the fields are empty even though the event has been added 
+          $ionicHistory.nextViewOptions({
+            disableBack: true
+          });
           $state.go('activity-list', { eventID: postedEvent.id });
         },
         function failure(error) {

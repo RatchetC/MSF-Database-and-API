@@ -13,17 +13,11 @@
       controller: 'ActivityListCtrl as vm',
       resolve: {
         thisEventsMappings: function (eventActivityMappingsSrvc, $stateParams) {
+          // get activities for event being created or edited to check if activities that the user wants to add are already added to the event
           return eventActivityMappingsSrvc.getEventActivityMappings($stateParams.eventID);
         }
       }
     });
-
-    // $stateProvider.state('activity-edit', {
-    //   cache: false,
-    //   url: '/activity-edit/:activityID',
-    //   templateUrl: 'templates/activity.edit.html',
-    //   controller: 'ActivityEditCtrl as vm'
-    // });
 
     $stateProvider.state('activity-add', {
       cache: false,

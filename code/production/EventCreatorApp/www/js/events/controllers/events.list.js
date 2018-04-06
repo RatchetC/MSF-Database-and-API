@@ -15,6 +15,10 @@
       loading: true
     });
 
+    // TODO: Fix navigation.
+    // TODO: Comment code
+    // TODO: Look into swapping out service calls for activityevents HTTP requests
+
     function init() {
       eventsSrvc.getAllEvents().then(
         function success(data) {
@@ -35,12 +39,11 @@
     };
 
     vm.deleteEvent = function (eventID) {
-      // TODO: Implement cleanup of this after figuring out how to make sure that only the events that the user added can be deleted.
       $ionicPopup.confirm({
         title: 'Delete Event',
         template: 'Are you sure you want to delete this event?'
-      }).then(function (res) {
-        if (res) {
+      }).then(function (response) {
+        if (response) {
           eventsSrvc.deleteEvent(eventID);
         }
       });
