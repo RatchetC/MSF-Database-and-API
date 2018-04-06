@@ -10,7 +10,7 @@ Welcome to the Event Creator App repository. Here you can find a more detailed e
 
 ### Adding Activities
 
-Work in progress. **[Activities List](##ActivitiesList)**
+Work in progress. **[Activities List](#activities-list)**
 
 ## Deleting Events
 

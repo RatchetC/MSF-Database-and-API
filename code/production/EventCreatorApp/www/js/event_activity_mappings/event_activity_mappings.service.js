@@ -6,9 +6,9 @@
 
   app.factory('eventActivityMappingsSrvc', eventActivityMappingsSrvc);
 
-  eventActivityMappingsSrvc.$inject = ['$q', 'activityevents'];
+  eventActivityMappingsSrvc.$inject = ['$q', 'activityevents', 'activitiesSrvc'];
 
-  function eventActivityMappingsSrvc($q, activityevents) {
+  function eventActivityMappingsSrvc($q, activityevents, activitiesSrvc) {
 
     var service = {};
 
@@ -41,15 +41,41 @@
     };
 
     service.deleteEventActivityMapping = function deleteEventActivityMapping(mappingID) {
+      var promiseObj = $q.defer();
       var config = {};
       activityevents.deleteEventActivityMappingsEventActivityMappingid(mappingID, config).then(
         function success(response) {
-          // There is no response message/data
+          promiseObj.resolve(response);
         },
         function failure(error) {
-          console.error(error);
+          promiseObj.reject(error);
         }
       );
+      return promiseObj.promise;
+    };
+
+    service.deleteActivitiesForThisEvent = function deleteActivitiesForThisEvent(eventID) {
+      var promiseObj = $q.defer();
+      service.getEventActivityMappings(eventID).then(
+        function success(data) {
+          console.log(data);
+          var promisesArray = [];
+          var deleteMappingsArray = [];
+          var deleteActivitiesArray = [];
+          var thisEventsActivities = data;
+          for (var i = 0; i < thisEventsActivities.length; i++) {
+            deleteMappingsArray.push(service.deleteEventActivityMapping(thisEventsActivities[i].id));
+            deleteActivitiesArray.push(activitiesSrvc.deleteActivity(thisEventsActivities[i].activity));
+          }
+          promisesArray.push(deleteMappingsArray);
+          promisesArray.push(deleteActivitiesArray);
+          promiseObj.resolve($q.all(promisesArray));
+        },
+        function failure(error) {
+          promiseObj.reject(error);
+        }
+      );
+      return promiseObj.promise;
     };
 
     return service;
