@@ -21,14 +21,17 @@
       resolve: {
         
         selectedEvent: function ($stateParams, eventsSrvc) {
+          // the event being edited
           return eventsSrvc.fetchEvent($stateParams.eventID);
         },
 
         activities: function ($stateParams, activitiesSrvc) {
+          // the event's activities
           return activitiesSrvc.getActivitiesForThisEvent($stateParams.eventID);
         },
 
         mappings: function ($stateParams, eventActivityMappingsSrvc) {
+          // the mappings between the event and its activities, needed to find and delete mappings between the event and the activities
           return eventActivityMappingsSrvc.getEventActivityMappings($stateParams.eventID);
         }
 

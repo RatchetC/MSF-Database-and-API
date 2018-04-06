@@ -86,24 +86,23 @@
     };
 
     service.getActivitiesForThisEvent = function getActivitiesForThisEvent(eventID) {
-      var promiseObj = $q.defer();
-      var config = { params: { event: eventID } };
-      // get all event activity mappings for this event
-      activityevents.getEventActivityMappings(config).then(
-        function success(response) {
-          var activityPromises = [];
-          var mappingsArray = response.data;
+      var promiseObj = $q.defer(); // defer the operation
+      var config = { params: { event: eventID } }; // pass the event ID to the config object to filter the mappings that are retrieved from the DB
+      activityevents.getEventActivityMappings(config).then( // get event activity mappings for this event
+        function success(response) { // success callback
+          var activityPromises = []; // the array that will hold all the promises
+          var mappingsArray = response.data; // the event activity mappings
           for (var i = 0; i < mappingsArray.length; i++) {
-            // get each activity for this event
+            // loop through and push promises to get activities into the promise array
             activityPromises.push(service.getActivity(mappingsArray[i].activity));
           }
-          promiseObj.resolve($q.all(activityPromises));
+          promiseObj.resolve($q.all(activityPromises)); // resolve all the promises
         },
-        function failure(error) {
-          promiseObj.reject(error);
+        function failure(error) { // failure callback
+          promiseObj.reject(error); // reject any errors from the promises in the array
         }
       );
-      return promiseObj.promise;
+      return promiseObj.promise; // return promise to retrieve all activities for this event
     };
 
     return service;

@@ -13,7 +13,7 @@
       controller: 'ActivityListCtrl as vm',
       resolve: {
         thisEventsMappings: function (eventActivityMappingsSrvc, $stateParams) {
-          // get activities for event being created or edited to check if activities that the user wants to add are already added to the event
+          // get activities for event being created or edited, to check if activities that the user wants to add are already added to the event
           return eventActivityMappingsSrvc.getEventActivityMappings($stateParams.eventID);
         }
       }

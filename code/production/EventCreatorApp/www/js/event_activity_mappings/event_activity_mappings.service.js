@@ -54,11 +54,11 @@
       return promiseObj.promise;
     };
 
+    // see the events.service.js folder for a commented version of this function
     service.deleteActivitiesForThisEvent = function deleteActivitiesForThisEvent(eventID) {
       var promiseObj = $q.defer();
       service.getEventActivityMappings(eventID).then(
         function success(data) {
-          console.log(data);
           var promisesArray = [];
           var deleteMappingsArray = [];
           var deleteActivitiesArray = [];
