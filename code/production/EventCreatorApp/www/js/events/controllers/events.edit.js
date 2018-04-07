@@ -85,22 +85,10 @@
             if (mappings[j].activity === activityID) {
               eventActivityMappingsSrvc.deleteEventActivityMapping(mappings[j].id).then(
                 function success(response) {
-                  // delete the activity
-                  activitiesSrvc.deleteActivity(activityID).then(
-                    function success(response) {
-                      $ionicPopup.alert({
-                        title: 'Success',
-                        template: 'Successfully deleted your activity from your event'
-                      });
-                    },
-                    function failure(error) {
-                      console.error(error);
-                      $ionicPopup.alert({
-                        title: 'Error',
-                        template: 'An error occurred while trying to delete your activity from your event. Please check your internet connection and try again.'
-                      });
-                    }
-                  );
+                  $ionicPopup.alert({
+                    title: 'Success',
+                    template: 'Successfully deleted your activity from your event'
+                  });
                 },
                 function failure(error) {
                   console.error(error);

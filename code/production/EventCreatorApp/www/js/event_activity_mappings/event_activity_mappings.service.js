@@ -60,15 +60,10 @@
       service.getEventActivityMappings(eventID).then(
         function success(data) {
           var promisesArray = [];
-          var deleteMappingsArray = [];
-          var deleteActivitiesArray = [];
           var thisEventsActivities = data;
           for (var i = 0; i < thisEventsActivities.length; i++) {
-            deleteMappingsArray.push(service.deleteEventActivityMapping(thisEventsActivities[i].id));
-            deleteActivitiesArray.push(activitiesSrvc.deleteActivity(thisEventsActivities[i].activity));
+            promisesArray.push(service.deleteEventActivityMapping(thisEventsActivities[i].id));
           }
-          promisesArray.push(deleteMappingsArray);
-          promisesArray.push(deleteActivitiesArray);
           promiseObj.resolve($q.all(promisesArray));
         },
         function failure(error) {
