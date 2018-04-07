@@ -2,15 +2,23 @@
 
 Welcome to the MSF 2017: Database and API repository.
 
+## Contents
+
+> [Project Brief](#project-brief)  
+> [System Overview](#system-overview)  
+>> [Event Creator App](#event-creator-app)  
+>> [Registrar App](#registrar-app)  
+>> [Observer App](#observer-app)
+
 ## Project Brief
 
-The project brief can be found **[here](https://github.com/RatchetC/MSF-Database-and-API/blob/master/docs/Briefs/msf2017databaseandapi.pdf)**
+> The project brief can be found **[here](https://github.com/RatchetC/MSF-Database-and-API/blob/master/docs/Briefs/msf2017databaseandapi.pdf)**
 
 ## System Overview
 
 > This product consists of three mobile apps, which are used together to manage an event. The apps are made with Cordova and Ionic.
 
-### **[Event Creator App](https://github.com/RatchetC/MSF-Database-and-API/tree/master/code/production/EventCreatorApp)**
+### **[Event Creator App](https://github.com/RatchetC/EventCreatorApp)**
 
 > The first app, the Event Creator App is used to create events and store them in the database. It can also be used to create activities and assign activities to the events that the user creates.
 
