@@ -5,10 +5,28 @@ Welcome to the MSF 2017: Database and API repository.
 ## Contents
 
 > [Project Brief](#project-brief)  
+
 > [System Overview](#system-overview)  
 >> [Event Creator App](#event-creator-app)  
 >> [Registrar App](#registrar-app)  
->> [Observer App](#observer-app)
+>> [Observer App](#observer-app)  
+
+> [Required Software](#required-software)  
+>> [NodeJS](#nodejs)  
+>> [Cordova](#cordova)  
+>> [Ionic](#ionic)  
+>> [Java](#java)  
+>> [Android Studio](#android-studio)  
+
+> [Download the apps](#download-the-apps)  
+
+> [Running the Event Creator App in your Browser](#running-the-event-creator-app-in-your-browser)  
+
+> [Running the apps in an Android Emulator](#running-the-apps-in-an-android-emulator)  
+
+> [Running the apps on an Android device](#running-the-apps-on-an-android-device)  
+>> [Requirements](#requirements)  
+>> [Running an Ionic app on your device](#running-an-ionic-app-on-your-device)  
 
 ## Project Brief
 
