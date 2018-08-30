@@ -1,0 +1,1303 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "description" : "",
+    "version" : "1.1.0",
+    "title" : "activityevents",
+    "contact" : {
+      "name" : "msf.db.api@gmail.com",
+      "email" : "msf.db.api@gmail.com"
+    }
+  },
+  "host" : "activityevents.restlet.net",
+  "basePath" : "/v1",
+  "tags" : [ {
+    "name" : "Default",
+    "description" : "Default section"
+  }, {
+    "name" : "ActivityEvents",
+    "description" : "Imported from ActivityEvents"
+  } ],
+  "schemes" : [ "https" ],
+  "paths" : {
+    "/activities/" : {
+      "get" : {
+        "tags" : [ "ActivityEvents" ],
+        "description" : "Loads a list of Activity",
+        "operationId" : "getActivities",
+        "produces" : [ "application/json", "application/x-yaml", "application/xml", "text/xml" ],
+        "parameters" : [ {
+          "name" : "units",
+          "in" : "query",
+          "description" : "Allows to filter the collections of result by the value of field units",
+          "required" : false,
+          "type" : "string",
+          "x-example" : "sample units"
+        }, {
+          "name" : "$page",
+          "in" : "query",
+          "description" : "Number of the page to retrieve. Integer value.",
+          "required" : false,
+          "type" : "string",
+          "x-example" : "sample $page"
+        }, {
+          "name" : "name",
+          "in" : "query",
+          "description" : "Allows to filter the collections of result by the value of field name",
+          "required" : false,
+          "type" : "string",
+          "x-example" : "sample name"
+        }, {
+          "name" : "$sort",
+          "in" : "query",
+          "description" : "Order in which to retrieve the results. Multiple sort criteria can be passed. Example: sort=age ASC,height DESC",
+          "required" : false,
+          "type" : "string",
+          "x-example" : "sample $sort"
+        }, {
+          "name" : "maxLegalValue",
+          "in" : "query",
+          "description" : "Allows to filter the collections of result by the value of field maxLegalValue",
+          "required" : false,
+          "type" : "string",
+          "x-example" : "sample maxLegalValue"
+        }, {
+          "name" : "id",
+          "in" : "query",
+          "description" : "Allows to filter the collections of result by the value of field id",
+          "required" : false,
+          "type" : "string",
+          "x-example" : "sample id"
+        }, {
+          "name" : "minLegalValue",
+          "in" : "query",
+          "description" : "Allows to filter the collections of result by the value of field minLegalValue",
+          "required" : false,
+          "type" : "string",
+          "x-example" : "sample minLegalValue"
+        }, {
+          "name" : "$size",
+          "in" : "query",
+          "description" : "Size of the page to retrieve. Integer value",
+          "required" : false,
+          "type" : "string",
+          "x-example" : "sample $size"
+        }, {
+          "name" : "description",
+          "in" : "query",
+          "description" : "Allows to filter the collections of result by the value of field description",
+          "required" : false,
+          "type" : "string",
+          "x-example" : "sample description"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Status 200",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/Activity"
+              }
+            }
+          },
+          "400" : {
+            "description" : "Status 400"
+          }
+        },
+        "security" : [ {
+          "HTTP_BASIC" : [ ]
+        } ]
+      },
+      "post" : {
+        "tags" : [ "ActivityEvents" ],
+        "description" : "Adds a Activity",
+        "operationId" : "postActivities",
+        "consumes" : [ "application/json", "application/x-yaml", "application/xml", "text/xml" ],
+        "produces" : [ "application/json", "application/x-yaml", "application/xml", "text/xml" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "required" : false,
+          "schema" : {
+            "$ref" : "#/definitions/Activity"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Status 200",
+            "schema" : {
+              "$ref" : "#/definitions/Activity"
+            }
+          }
+        },
+        "security" : [ {
+          "HTTP_BASIC" : [ ]
+        } ]
+      }
+    },
+    "/activities/{activityid}" : {
+      "get" : {
+        "tags" : [ "ActivityEvents" ],
+        "description" : "Loads a Activity",
+        "operationId" : "getActivitiesActivityid",
+        "produces" : [ "application/json", "application/x-yaml", "application/xml", "text/xml" ],
+        "parameters" : [ {
+          "name" : "activityid",
+          "in" : "path",
+          "description" : "Identifier of the Activity",
+          "required" : true,
+          "type" : "string",
+          "x-example" : "sample activityid"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Status 200",
+            "schema" : {
+              "$ref" : "#/definitions/Activity"
+            }
+          },
+          "400" : {
+            "description" : "Status 400"
+          }
+        },
+        "security" : [ {
+          "HTTP_BASIC" : [ ]
+        } ]
+      },
+      "put" : {
+        "tags" : [ "ActivityEvents" ],
+        "description" : "Stores a Activity",
+        "operationId" : "putActivitiesActivityid",
+        "consumes" : [ "application/json", "application/x-yaml", "application/xml", "text/xml" ],
+        "produces" : [ "application/json", "application/x-yaml", "application/xml", "text/xml" ],
+        "parameters" : [ {
+          "name" : "activityid",
+          "in" : "path",
+          "description" : "Identifier of the Activity",
+          "required" : true,
+          "type" : "string",
+          "x-example" : "sample activityid"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "required" : false,
+          "schema" : {
+            "$ref" : "#/definitions/Activity"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Status 200",
+            "schema" : {
+              "$ref" : "#/definitions/Activity"
+            }
+          }
+        },
+        "security" : [ {
+          "HTTP_BASIC" : [ ]
+        } ]
+      },
+      "delete" : {
+        "tags" : [ "ActivityEvents" ],
+        "description" : "Deletes a Activity",
+        "operationId" : "deleteActivitiesActivityid",
+        "parameters" : [ {
+          "name" : "activityid",
+          "in" : "path",
+          "description" : "Identifier of the Activity",
+          "required" : true,
+          "type" : "string",
+          "x-example" : "sample activityid"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Status 200"
+          }
+        },
+        "security" : [ {
+          "HTTP_BASIC" : [ ]
+        } ]
+      }
+    },
+    "/eventActivityMappings/" : {
+      "get" : {
+        "tags" : [ "ActivityEvents" ],
+        "description" : "Loads a list of EventActivityMapping",
+        "operationId" : "getEventActivityMappings",
+        "produces" : [ "application/json", "application/x-yaml", "application/xml", "text/xml" ],
+        "parameters" : [ {
+          "name" : "$size",
+          "in" : "query",
+          "description" : "Size of the page to retrieve. Integer value",
+          "required" : false,
+          "type" : "string",
+          "x-example" : "sample $size"
+        }, {
+          "name" : "id",
+          "in" : "query",
+          "description" : "Allows to filter the collections of result by the value of field id",
+          "required" : false,
+          "type" : "string",
+          "x-example" : "sample id"
+        }, {
+          "name" : "event",
+          "in" : "query",
+          "description" : "Allows to filter the collections of result by the value of field event",
+          "required" : false,
+          "type" : "string",
+          "x-example" : "sample event"
+        }, {
+          "name" : "$page",
+          "in" : "query",
+          "description" : "Number of the page to retrieve. Integer value.",
+          "required" : false,
+          "type" : "string",
+          "x-example" : "sample $page"
+        }, {
+          "name" : "$sort",
+          "in" : "query",
+          "description" : "Order in which to retrieve the results. Multiple sort criteria can be passed. Example: sort=age ASC,height DESC",
+          "required" : false,
+          "type" : "string",
+          "x-example" : "sample $sort"
+        }, {
+          "name" : "activity",
+          "in" : "query",
+          "description" : "Allows to filter the collections of result by the value of field activity",
+          "required" : false,
+          "type" : "string",
+          "x-example" : "sample activity"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Status 200",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/EventActivityMapping"
+              }
+            }
+          },
+          "400" : {
+            "description" : "Status 400"
+          }
+        },
+        "security" : [ {
+          "HTTP_BASIC" : [ ]
+        } ]
+      },
+      "post" : {
+        "tags" : [ "ActivityEvents" ],
+        "description" : "Adds a EventActivityMapping",
+        "operationId" : "postEventActivityMappings",
+        "consumes" : [ "application/json", "application/x-yaml", "application/xml", "text/xml" ],
+        "produces" : [ "application/json", "application/x-yaml", "application/xml", "text/xml" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "required" : false,
+          "schema" : {
+            "$ref" : "#/definitions/EventActivityMapping"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Status 200",
+            "schema" : {
+              "$ref" : "#/definitions/EventActivityMapping"
+            }
+          }
+        },
+        "security" : [ {
+          "HTTP_BASIC" : [ ]
+        } ]
+      }
+    },
+    "/eventActivityMappings/{eventActivityMappingid}" : {
+      "get" : {
+        "tags" : [ "ActivityEvents" ],
+        "description" : "Loads a EventActivityMapping",
+        "operationId" : "getEventActivityMappingsEventActivityMappingid",
+        "produces" : [ "application/json", "application/x-yaml", "application/xml", "text/xml" ],
+        "parameters" : [ {
+          "name" : "eventActivityMappingid",
+          "in" : "path",
+          "description" : "Identifier of the EventActivityMapping",
+          "required" : true,
+          "type" : "string",
+          "x-example" : "sample eventActivityMappingid"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Status 200",
+            "schema" : {
+              "$ref" : "#/definitions/EventActivityMapping"
+            }
+          },
+          "400" : {
+            "description" : "Status 400"
+          }
+        },
+        "security" : [ {
+          "HTTP_BASIC" : [ ]
+        } ]
+      },
+      "put" : {
+        "tags" : [ "ActivityEvents" ],
+        "description" : "Stores a EventActivityMapping",
+        "operationId" : "putEventActivityMappingsEventActivityMappingid",
+        "consumes" : [ "application/json", "application/x-yaml", "application/xml", "text/xml" ],
+        "produces" : [ "application/json", "application/x-yaml", "application/xml", "text/xml" ],
+        "parameters" : [ {
+          "name" : "eventActivityMappingid",
+          "in" : "path",
+          "description" : "Identifier of the EventActivityMapping",
+          "required" : true,
+          "type" : "string",
+          "x-example" : "sample eventActivityMappingid"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "required" : false,
+          "schema" : {
+            "$ref" : "#/definitions/EventActivityMapping"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Status 200",
+            "schema" : {
+              "$ref" : "#/definitions/EventActivityMapping"
+            }
+          }
+        },
+        "security" : [ {
+          "HTTP_BASIC" : [ ]
+        } ]
+      },
+      "delete" : {
+        "tags" : [ "ActivityEvents" ],
+        "description" : "Deletes a EventActivityMapping",
+        "operationId" : "deleteEventActivityMappingsEventActivityMappingid",
+        "parameters" : [ {
+          "name" : "eventActivityMappingid",
+          "in" : "path",
+          "description" : "Identifier of the EventActivityMapping",
+          "required" : true,
+          "type" : "string",
+          "x-example" : "sample eventActivityMappingid"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Status 200"
+          }
+        },
+        "security" : [ {
+          "HTTP_BASIC" : [ ]
+        } ]
+      }
+    },
+    "/eventSubjectMappings/" : {
+      "get" : {
+        "tags" : [ "ActivityEvents" ],
+        "description" : "Loads a list of EventSubjectMapping",
+        "operationId" : "getEventSubjectMappings",
+        "produces" : [ "application/json", "application/x-yaml", "application/xml", "text/xml" ],
+        "parameters" : [ {
+          "name" : "$page",
+          "in" : "query",
+          "description" : "Number of the page to retrieve. Integer value.",
+          "required" : false,
+          "type" : "string",
+          "x-example" : "sample $page"
+        }, {
+          "name" : "id",
+          "in" : "query",
+          "description" : "Allows to filter the collections of result by the value of field id",
+          "required" : false,
+          "type" : "string",
+          "x-example" : "sample id"
+        }, {
+          "name" : "$size",
+          "in" : "query",
+          "description" : "Size of the page to retrieve. Integer value",
+          "required" : false,
+          "type" : "string",
+          "x-example" : "sample $size"
+        }, {
+          "name" : "subject",
+          "in" : "query",
+          "description" : "Allows to filter the collections of result by the value of field subject",
+          "required" : false,
+          "type" : "string",
+          "x-example" : "sample subject"
+        }, {
+          "name" : "event",
+          "in" : "query",
+          "description" : "Allows to filter the collections of result by the value of field event",
+          "required" : false,
+          "type" : "string",
+          "x-example" : "sample event"
+        }, {
+          "name" : "$sort",
+          "in" : "query",
+          "description" : "Order in which to retrieve the results. Multiple sort criteria can be passed. Example: sort=age ASC,height DESC",
+          "required" : false,
+          "type" : "string",
+          "x-example" : "sample $sort"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Status 200",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/EventSubjectMapping"
+              }
+            }
+          },
+          "400" : {
+            "description" : "Status 400"
+          }
+        },
+        "security" : [ {
+          "HTTP_BASIC" : [ ]
+        } ]
+      },
+      "post" : {
+        "tags" : [ "ActivityEvents" ],
+        "description" : "Adds a EventSubjectMapping",
+        "operationId" : "postEventSubjectMappings",
+        "consumes" : [ "application/json", "application/x-yaml", "application/xml", "text/xml" ],
+        "produces" : [ "application/json", "application/x-yaml", "application/xml", "text/xml" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "required" : false,
+          "schema" : {
+            "$ref" : "#/definitions/EventSubjectMapping"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Status 200",
+            "schema" : {
+              "$ref" : "#/definitions/EventSubjectMapping"
+            }
+          }
+        },
+        "security" : [ {
+          "HTTP_BASIC" : [ ]
+        } ]
+      }
+    },
+    "/eventSubjectMappings/{eventSubjectMappingid}" : {
+      "get" : {
+        "tags" : [ "ActivityEvents" ],
+        "description" : "Loads a EventSubjectMapping",
+        "operationId" : "getEventSubjectMappingsEventSubjectMappingid",
+        "produces" : [ "application/json", "application/x-yaml", "application/xml", "text/xml" ],
+        "parameters" : [ {
+          "name" : "eventSubjectMappingid",
+          "in" : "path",
+          "description" : "Identifier of the EventSubjectMapping",
+          "required" : true,
+          "type" : "string",
+          "x-example" : "sample eventSubjectMappingid"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Status 200",
+            "schema" : {
+              "$ref" : "#/definitions/EventSubjectMapping"
+            }
+          },
+          "400" : {
+            "description" : "Status 400"
+          }
+        },
+        "security" : [ {
+          "HTTP_BASIC" : [ ]
+        } ]
+      },
+      "put" : {
+        "tags" : [ "ActivityEvents" ],
+        "description" : "Stores a EventSubjectMapping",
+        "operationId" : "putEventSubjectMappingsEventSubjectMappingid",
+        "consumes" : [ "application/json", "application/x-yaml", "application/xml", "text/xml" ],
+        "produces" : [ "application/json", "application/x-yaml", "application/xml", "text/xml" ],
+        "parameters" : [ {
+          "name" : "eventSubjectMappingid",
+          "in" : "path",
+          "description" : "Identifier of the EventSubjectMapping",
+          "required" : true,
+          "type" : "string",
+          "x-example" : "sample eventSubjectMappingid"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "required" : false,
+          "schema" : {
+            "$ref" : "#/definitions/EventSubjectMapping"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Status 200",
+            "schema" : {
+              "$ref" : "#/definitions/EventSubjectMapping"
+            }
+          }
+        },
+        "security" : [ {
+          "HTTP_BASIC" : [ ]
+        } ]
+      },
+      "delete" : {
+        "tags" : [ "ActivityEvents" ],
+        "description" : "Deletes a EventSubjectMapping",
+        "operationId" : "deleteEventSubjectMappingsEventSubjectMappingid",
+        "parameters" : [ {
+          "name" : "eventSubjectMappingid",
+          "in" : "path",
+          "description" : "Identifier of the EventSubjectMapping",
+          "required" : true,
+          "type" : "string",
+          "x-example" : "sample eventSubjectMappingid"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Status 200"
+          }
+        },
+        "security" : [ {
+          "HTTP_BASIC" : [ ]
+        } ]
+      }
+    },
+    "/events/" : {
+      "get" : {
+        "tags" : [ "ActivityEvents" ],
+        "description" : "Loads a list of Event",
+        "operationId" : "getEvents",
+        "produces" : [ "application/json", "application/x-yaml", "application/xml", "text/xml" ],
+        "parameters" : [ {
+          "name" : "$sort",
+          "in" : "query",
+          "description" : "Order in which to retrieve the results. Multiple sort criteria can be passed. Example: sort=age ASC,height DESC",
+          "required" : false,
+          "type" : "string",
+          "x-example" : "sample $sort"
+        }, {
+          "name" : "date",
+          "in" : "query",
+          "description" : "Allows to filter the collections of result by the value of field date",
+          "required" : false,
+          "type" : "string",
+          "x-example" : "sample date"
+        }, {
+          "name" : "id",
+          "in" : "query",
+          "description" : "Allows to filter the collections of result by the value of field id",
+          "required" : false,
+          "type" : "string",
+          "x-example" : "sample id"
+        }, {
+          "name" : "$page",
+          "in" : "query",
+          "description" : "Number of the page to retrieve. Integer value.",
+          "required" : false,
+          "type" : "string",
+          "x-example" : "sample $page"
+        }, {
+          "name" : "$size",
+          "in" : "query",
+          "description" : "Size of the page to retrieve. Integer value",
+          "required" : false,
+          "type" : "string",
+          "x-example" : "sample $size"
+        }, {
+          "name" : "name",
+          "in" : "query",
+          "description" : "Allows to filter the collections of result by the value of field name",
+          "required" : false,
+          "type" : "string",
+          "x-example" : "sample name"
+        }, {
+          "name" : "postcode",
+          "in" : "query",
+          "description" : "Allows to filter the collections of result by the value of field postcode",
+          "required" : false,
+          "type" : "string",
+          "x-example" : "sample postcode"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Status 200",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/Event"
+              }
+            }
+          },
+          "400" : {
+            "description" : "Status 400"
+          }
+        },
+        "security" : [ {
+          "HTTP_BASIC" : [ ]
+        } ]
+      },
+      "post" : {
+        "tags" : [ "ActivityEvents" ],
+        "description" : "Adds a Event",
+        "operationId" : "postEvents",
+        "consumes" : [ "application/json", "application/x-yaml", "application/xml", "text/xml" ],
+        "produces" : [ "application/json", "application/x-yaml", "application/xml", "text/xml" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "required" : false,
+          "schema" : {
+            "$ref" : "#/definitions/Event"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Status 200",
+            "schema" : {
+              "$ref" : "#/definitions/Event"
+            }
+          }
+        },
+        "security" : [ {
+          "HTTP_BASIC" : [ ]
+        } ]
+      }
+    },
+    "/events/{eventid}" : {
+      "get" : {
+        "tags" : [ "ActivityEvents" ],
+        "description" : "Loads a Event",
+        "operationId" : "getEventsEventid",
+        "produces" : [ "application/json", "application/x-yaml", "application/xml", "text/xml" ],
+        "parameters" : [ {
+          "name" : "eventid",
+          "in" : "path",
+          "description" : "Identifier of the Event",
+          "required" : true,
+          "type" : "string",
+          "x-example" : "sample eventid"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Status 200",
+            "schema" : {
+              "$ref" : "#/definitions/Event"
+            }
+          },
+          "400" : {
+            "description" : "Status 400"
+          }
+        },
+        "security" : [ {
+          "HTTP_BASIC" : [ ]
+        } ]
+      },
+      "put" : {
+        "tags" : [ "ActivityEvents" ],
+        "description" : "Stores a Event",
+        "operationId" : "putEventsEventid",
+        "consumes" : [ "application/json", "application/x-yaml", "application/xml", "text/xml" ],
+        "produces" : [ "application/json", "application/x-yaml", "application/xml", "text/xml" ],
+        "parameters" : [ {
+          "name" : "eventid",
+          "in" : "path",
+          "description" : "Identifier of the Event",
+          "required" : true,
+          "type" : "string",
+          "x-example" : "sample eventid"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "required" : false,
+          "schema" : {
+            "$ref" : "#/definitions/Event"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Status 200",
+            "schema" : {
+              "$ref" : "#/definitions/Event"
+            }
+          }
+        },
+        "security" : [ {
+          "HTTP_BASIC" : [ ]
+        } ]
+      },
+      "delete" : {
+        "tags" : [ "ActivityEvents" ],
+        "description" : "Deletes a Event",
+        "operationId" : "deleteEventsEventid",
+        "parameters" : [ {
+          "name" : "eventid",
+          "in" : "path",
+          "description" : "Identifier of the Event",
+          "required" : true,
+          "type" : "string",
+          "x-example" : "sample eventid"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Status 200"
+          }
+        },
+        "security" : [ {
+          "HTTP_BASIC" : [ ]
+        } ]
+      }
+    },
+    "/observations/" : {
+      "get" : {
+        "tags" : [ "ActivityEvents" ],
+        "description" : "Loads a list of Observation",
+        "operationId" : "getObservations",
+        "produces" : [ "application/json", "application/x-yaml", "application/xml", "text/xml" ],
+        "parameters" : [ {
+          "name" : "activity",
+          "in" : "query",
+          "description" : "Allows to filter the collections of result by the value of field activity",
+          "required" : false,
+          "type" : "string",
+          "x-example" : "sample activity"
+        }, {
+          "name" : "event",
+          "in" : "query",
+          "description" : "Allows to filter the collections of result by the value of field event",
+          "required" : false,
+          "type" : "string",
+          "x-example" : "sample event"
+        }, {
+          "name" : "$size",
+          "in" : "query",
+          "description" : "Size of the page to retrieve. Integer value",
+          "required" : false,
+          "type" : "string",
+          "x-example" : "sample $size"
+        }, {
+          "name" : "$page",
+          "in" : "query",
+          "description" : "Number of the page to retrieve. Integer value.",
+          "required" : false,
+          "type" : "string",
+          "x-example" : "sample $page"
+        }, {
+          "name" : "subject",
+          "in" : "query",
+          "description" : "Allows to filter the collections of result by the value of field subject",
+          "required" : false,
+          "type" : "string",
+          "x-example" : "sample subject"
+        }, {
+          "name" : "id",
+          "in" : "query",
+          "description" : "Allows to filter the collections of result by the value of field id",
+          "required" : false,
+          "type" : "string",
+          "x-example" : "sample id"
+        }, {
+          "name" : "value",
+          "in" : "query",
+          "description" : "Allows to filter the collections of result by the value of field value",
+          "required" : false,
+          "type" : "string",
+          "x-example" : "sample value"
+        }, {
+          "name" : "$sort",
+          "in" : "query",
+          "description" : "Order in which to retrieve the results. Multiple sort criteria can be passed. Example: sort=age ASC,height DESC",
+          "required" : false,
+          "type" : "string",
+          "x-example" : "sample $sort"
+        }, {
+          "name" : "timestamp_s_unix_epoch_utc",
+          "in" : "query",
+          "description" : "Allows to filter the collections of result by the value of field timestamp_s_unix_epoch_utc",
+          "required" : false,
+          "type" : "string",
+          "x-example" : "sample timestamp_s_unix_epoch_utc"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Status 200",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/Observation"
+              }
+            }
+          },
+          "400" : {
+            "description" : "Status 400"
+          }
+        },
+        "security" : [ {
+          "HTTP_BASIC" : [ ]
+        } ]
+      },
+      "post" : {
+        "tags" : [ "ActivityEvents" ],
+        "description" : "Adds a Observation",
+        "operationId" : "postObservations",
+        "consumes" : [ "application/json", "application/x-yaml", "application/xml", "text/xml" ],
+        "produces" : [ "application/json", "application/x-yaml", "application/xml", "text/xml" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "required" : false,
+          "schema" : {
+            "$ref" : "#/definitions/Observation"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Status 200",
+            "schema" : {
+              "$ref" : "#/definitions/Observation"
+            }
+          }
+        },
+        "security" : [ {
+          "HTTP_BASIC" : [ ]
+        } ]
+      }
+    },
+    "/observations/{observationid}" : {
+      "get" : {
+        "tags" : [ "ActivityEvents" ],
+        "description" : "Loads a Observation",
+        "operationId" : "getObservationsObservationid",
+        "produces" : [ "application/json", "application/x-yaml", "application/xml", "text/xml" ],
+        "parameters" : [ {
+          "name" : "observationid",
+          "in" : "path",
+          "description" : "Identifier of the Observation",
+          "required" : true,
+          "type" : "string",
+          "x-example" : "sample observationid"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Status 200",
+            "schema" : {
+              "$ref" : "#/definitions/Observation"
+            }
+          },
+          "400" : {
+            "description" : "Status 400"
+          }
+        },
+        "security" : [ {
+          "HTTP_BASIC" : [ ]
+        } ]
+      },
+      "put" : {
+        "tags" : [ "ActivityEvents" ],
+        "description" : "Stores a Observation",
+        "operationId" : "putObservationsObservationid",
+        "consumes" : [ "application/json", "application/x-yaml", "application/xml", "text/xml" ],
+        "produces" : [ "application/json", "application/x-yaml", "application/xml", "text/xml" ],
+        "parameters" : [ {
+          "name" : "observationid",
+          "in" : "path",
+          "description" : "Identifier of the Observation",
+          "required" : true,
+          "type" : "string",
+          "x-example" : "sample observationid"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "required" : false,
+          "schema" : {
+            "$ref" : "#/definitions/Observation"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Status 200",
+            "schema" : {
+              "$ref" : "#/definitions/Observation"
+            }
+          }
+        },
+        "security" : [ {
+          "HTTP_BASIC" : [ ]
+        } ]
+      },
+      "delete" : {
+        "tags" : [ "ActivityEvents" ],
+        "description" : "Deletes a Observation",
+        "operationId" : "deleteObservationsObservationid",
+        "parameters" : [ {
+          "name" : "observationid",
+          "in" : "path",
+          "description" : "Identifier of the Observation",
+          "required" : true,
+          "type" : "string",
+          "x-example" : "sample observationid"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Status 200"
+          }
+        },
+        "security" : [ {
+          "HTTP_BASIC" : [ ]
+        } ]
+      }
+    },
+    "/subjects/" : {
+      "get" : {
+        "tags" : [ "ActivityEvents" ],
+        "description" : "Loads a list of Subject",
+        "operationId" : "getSubjects",
+        "produces" : [ "application/json", "application/x-yaml", "application/xml", "text/xml" ],
+        "parameters" : [ {
+          "name" : "$size",
+          "in" : "query",
+          "description" : "Size of the page to retrieve. Integer value",
+          "required" : false,
+          "type" : "string",
+          "x-example" : "sample $size"
+        }, {
+          "name" : "$page",
+          "in" : "query",
+          "description" : "Number of the page to retrieve. Integer value.",
+          "required" : false,
+          "type" : "string",
+          "x-example" : "sample $page"
+        }, {
+          "name" : "$sort",
+          "in" : "query",
+          "description" : "Order in which to retrieve the results. Multiple sort criteria can be passed. Example: sort=age ASC,height DESC",
+          "required" : false,
+          "type" : "string",
+          "x-example" : "sample $sort"
+        }, {
+          "name" : "id",
+          "in" : "query",
+          "description" : "Allows to filter the collections of result by the value of field id",
+          "required" : false,
+          "type" : "string",
+          "x-example" : "sample id"
+        }, {
+          "name" : "nickname",
+          "in" : "query",
+          "description" : "Allows to filter the collections of result by the value of field nickname",
+          "required" : false,
+          "type" : "string",
+          "x-example" : "sample nickname"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Status 200",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/Subject"
+              }
+            }
+          },
+          "400" : {
+            "description" : "Status 400"
+          }
+        },
+        "security" : [ {
+          "HTTP_BASIC" : [ ]
+        } ]
+      },
+      "post" : {
+        "tags" : [ "ActivityEvents" ],
+        "description" : "Adds a Subject",
+        "operationId" : "postSubjects",
+        "consumes" : [ "application/json", "application/x-yaml", "application/xml", "text/xml" ],
+        "produces" : [ "application/json", "application/x-yaml", "application/xml", "text/xml" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "required" : false,
+          "schema" : {
+            "$ref" : "#/definitions/Subject"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Status 200",
+            "schema" : {
+              "$ref" : "#/definitions/Subject"
+            }
+          }
+        },
+        "security" : [ {
+          "HTTP_BASIC" : [ ]
+        } ]
+      }
+    },
+    "/subjects/{subjectid}" : {
+      "get" : {
+        "tags" : [ "ActivityEvents" ],
+        "description" : "Loads a Subject",
+        "operationId" : "getSubjectsSubjectid",
+        "produces" : [ "application/json", "application/x-yaml", "application/xml", "text/xml" ],
+        "parameters" : [ {
+          "name" : "subjectid",
+          "in" : "path",
+          "description" : "Identifier of the Subject",
+          "required" : true,
+          "type" : "string",
+          "x-example" : "sample subjectid"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Status 200",
+            "schema" : {
+              "$ref" : "#/definitions/Subject"
+            }
+          },
+          "400" : {
+            "description" : "Status 400"
+          }
+        },
+        "security" : [ {
+          "HTTP_BASIC" : [ ]
+        } ]
+      },
+      "put" : {
+        "tags" : [ "ActivityEvents" ],
+        "description" : "Stores a Subject",
+        "operationId" : "putSubjectsSubjectid",
+        "consumes" : [ "application/json", "application/x-yaml", "application/xml", "text/xml" ],
+        "produces" : [ "application/json", "application/x-yaml", "application/xml", "text/xml" ],
+        "parameters" : [ {
+          "name" : "subjectid",
+          "in" : "path",
+          "description" : "Identifier of the Subject",
+          "required" : true,
+          "type" : "string",
+          "x-example" : "sample subjectid"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "required" : false,
+          "schema" : {
+            "$ref" : "#/definitions/Subject"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Status 200",
+            "schema" : {
+              "$ref" : "#/definitions/Subject"
+            }
+          }
+        },
+        "security" : [ {
+          "HTTP_BASIC" : [ ]
+        } ]
+      },
+      "delete" : {
+        "tags" : [ "ActivityEvents" ],
+        "description" : "Deletes a Subject",
+        "operationId" : "deleteSubjectsSubjectid",
+        "parameters" : [ {
+          "name" : "subjectid",
+          "in" : "path",
+          "description" : "Identifier of the Subject",
+          "required" : true,
+          "type" : "string",
+          "x-example" : "sample subjectid"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Status 200"
+          }
+        },
+        "security" : [ {
+          "HTTP_BASIC" : [ ]
+        } ]
+      }
+    }
+  },
+  "securityDefinitions" : {
+    "HTTP_BASIC" : {
+      "type" : "basic"
+    }
+  },
+  "definitions" : {
+    "Activity" : {
+      "type" : "object",
+      "required" : [ "description", "id", "maxLegalValue", "minLegalValue", "name", "units" ],
+      "properties" : {
+        "id" : {
+          "type" : "string",
+          "example" : "sample id",
+          "description" : "Auto-generated primary key field"
+        },
+        "name" : {
+          "type" : "string",
+          "example" : "sample name"
+        },
+        "description" : {
+          "type" : "string",
+          "example" : "sample description"
+        },
+        "units" : {
+          "type" : "string",
+          "example" : "J.s^-1"
+        },
+        "minLegalValue" : {
+          "type" : "number",
+          "format" : "double",
+          "example" : 1.1,
+          "default" : 0.0
+        },
+        "maxLegalValue" : {
+          "type" : "number",
+          "format" : "double",
+          "example" : 1.1,
+          "default" : 100.0
+        }
+      },
+      "example" : "{\"id\":\"sample id\",\"name\":\"sample name\",\"description\":\"sample description\",\"units\":\"J.s^-1\",\"minLegalValue\":1.1,\"maxLegalValue\":1.1}"
+    },
+    "Event" : {
+      "type" : "object",
+      "required" : [ "date", "id", "name" ],
+      "properties" : {
+        "id" : {
+          "type" : "string",
+          "example" : "sample id",
+          "description" : "Auto-generated primary key field"
+        },
+        "name" : {
+          "type" : "string",
+          "example" : "sample name",
+          "default" : "Untitled Event"
+        },
+        "date" : {
+          "type" : "string",
+          "example" : "2017-12-31",
+          "default" : "1970-01-01"
+        },
+        "postcode" : {
+          "type" : "string",
+          "example" : "M3 4FP"
+        }
+      },
+      "example" : "{\"id\":\"sample id\",\"name\":\"sample name\",\"date\":\"2017-12-31\",\"postcode\":\"M3 4FP\"}"
+    },
+    "EventActivityMapping" : {
+      "type" : "object",
+      "required" : [ "activity", "event", "id" ],
+      "properties" : {
+        "id" : {
+          "type" : "string",
+          "example" : "sample id",
+          "description" : "Auto-generated primary key field"
+        },
+        "activity" : {
+          "type" : "string",
+          "example" : "sample activity",
+          "description" : "This property is a reference to a Activity"
+        },
+        "event" : {
+          "type" : "string",
+          "example" : "sample event",
+          "description" : "This property is a reference to a Event"
+        }
+      },
+      "example" : "{\"id\":\"sample id\",\"activity\":\"sample activity\",\"event\":\"sample event\"}"
+    },
+    "EventSubjectMapping" : {
+      "type" : "object",
+      "required" : [ "event", "id", "subject" ],
+      "properties" : {
+        "id" : {
+          "type" : "string",
+          "example" : "sample id",
+          "description" : "Auto-generated primary key field"
+        },
+        "subject" : {
+          "type" : "string",
+          "example" : "sample subject",
+          "description" : "This property is a reference to a Subject"
+        },
+        "event" : {
+          "type" : "string",
+          "example" : "sample event",
+          "description" : "This property is a reference to a Event"
+        }
+      },
+      "example" : "{\"id\":\"sample id\",\"subject\":\"sample subject\",\"event\":\"sample event\"}"
+    },
+    "Observation" : {
+      "type" : "object",
+      "required" : [ "activity", "event", "id", "subject", "timestamp_s_unix_epoch_utc", "value" ],
+      "properties" : {
+        "id" : {
+          "type" : "string",
+          "example" : "sample id",
+          "description" : "Auto-generated primary key field"
+        },
+        "event" : {
+          "type" : "string",
+          "example" : "sample event",
+          "description" : "This property is a reference to a Event"
+        },
+        "activity" : {
+          "type" : "string",
+          "example" : "sample activity",
+          "description" : "This property is a reference to a Activity"
+        },
+        "subject" : {
+          "type" : "string",
+          "example" : "sample subject",
+          "description" : "This property is a reference to a Subject"
+        },
+        "value" : {
+          "type" : "number",
+          "format" : "double",
+          "example" : 0.0,
+          "default" : 0.0
+        },
+        "timestamp_s_unix_epoch_utc" : {
+          "type" : "integer",
+          "format" : "int64",
+          "example" : 1510568560,
+          "default" : 0
+        }
+      },
+      "example" : "{\"id\":\"sample id\",\"event\":\"sample event\",\"activity\":\"sample activity\",\"subject\":\"sample subject\",\"value\":0.0,\"timestamp_s_unix_epoch_utc\":1510568560}"
+    },
+    "Subject" : {
+      "type" : "object",
+      "required" : [ "id", "nickname" ],
+      "properties" : {
+        "id" : {
+          "type" : "string",
+          "example" : "sample id",
+          "description" : "Auto-generated primary key field"
+        },
+        "nickname" : {
+          "type" : "string",
+          "example" : "sample nickname",
+          "default" : "Anonymous"
+        }
+      },
+      "example" : "{\"id\":\"sample id\",\"nickname\":\"sample nickname\"}"
+    }
+  }
+}
