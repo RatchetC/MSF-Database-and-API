@@ -32,6 +32,9 @@ Welcome to the MSF 2017: Database and API repository.
 
 The project brief can be found **[here](https://github.com/RatchetC/MSF-Database-and-API/blob/master/docs/Briefs/msf2017databaseandapi.pdf)**
 
+## Project Design
+The project design was done by the RatchetC team, on Trello. You can find it [here](https://trello.com/msf2017dbapi)
+
 ## System Overview
 
 This product consists of three mobile apps, which are used together to manage an event. The apps are made with Cordova and Ionic.
