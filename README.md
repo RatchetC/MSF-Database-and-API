@@ -40,6 +40,7 @@ The project design was done by the RatchetC team, on Trello. You can find it [he
 ## [Restlet API](https://cloud.restlet.com/api/apis/26858/versions/1/swagger-ui/index.html?url=/api/apis/26858/versions/1/swagger2?revision=deployed)
 This API is provided by the Restlet cloud service. It is free-tier.
 The Apps all use this API to store events, activities and their data.
+You can find the API definition file [here](https://github.com/RatchetC/MSF-Database-and-API/blob/master/code/server_api/definition.json)
 
 This product consists of three mobile apps, which are used together to manage an event. The apps are made with Cordova and Ionic.
 
