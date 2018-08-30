@@ -37,6 +37,10 @@ The project design was done by the RatchetC team, on Trello. You can find it [he
 
 ## System Overview
 
+## [Restlet API](https://cloud.restlet.com/api/apis/26858/versions/1/swagger-ui/index.html?url=/api/apis/26858/versions/1/swagger2?revision=deployed)
+This API is provided by the Restlet cloud service. It is free-tier.
+The Apps all use this API to store events, activities and their data.
+
 This product consists of three mobile apps, which are used together to manage an event. The apps are made with Cordova and Ionic.
 
 ### **[Event Creator App](https://github.com/RatchetC/EventCreatorApp)**
