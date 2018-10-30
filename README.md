@@ -71,7 +71,7 @@ NodeJS is required to download and install Cordova and Ionic. Download it **[her
 
 To install Cordova please ensure that you have installed NodeJS and that npm was installed along with it (it should be).
 You can do this by running the `node -v` and the `npm -v` commands in either the Command Prompt (Windows) or the Terminal (Mac/Linux).
-Once you've confirmed that NodeJS and npm are installed on your machine, you can run the `npm install -g cordova` command to install Cordova onto your machine.
+Once you've confirmed that NodeJS and npm are installed on your machine, you can run the `npm install -g cordova@6.5.0` command to install Cordova version 6.5.0 onto your machine.
 
 Cordova Installation :
 
@@ -80,7 +80,7 @@ $ node -v
 v8.9.0
 $ npm -v
 v5.5.1
-$ npm install -g cordova
+$ npm install -g cordova@6.5.0
 ```
 
 ### Ionic
