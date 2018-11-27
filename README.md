@@ -12,9 +12,9 @@ Welcome to the MSF 2017: Database and API repository.
 >> [Observer App](#observer-app)  
 
 > Download APKs
->> [EventCreator App](https://drive.google.com/open?id=16ACxTJ5gqT4dSrTy9JEe09SC0yALR9cg)  
->> [Registrar App](https://drive.google.com/open?id=1ET4Y9_AZyH1hTPjIBYIrQWzPMQ3pqDJV)  
->> [Observer App](https://drive.google.com/open?id=1zdV_mdOEKzlAuOaGGOCg7aqUIzRMpUDg)  
+>> [EventCreator App](https://drive.google.com/open?id=1dBBxutRFR17PLhs_ibLSdDlgGsd1-cC0)  
+>> [Registrar App](https://drive.google.com/open?id=14ubInIC-YqUa059NgcE1eo2LjasrZ2a-)  
+>> [Observer App](https://drive.google.com/open?id=1ku8-s1aOByv5Bmva1chCejymb9x_vDdd)  
 
 > [Required Software](#required-software)  
 >> [NodeJS](#nodejs)  
